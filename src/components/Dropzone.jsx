@@ -29,10 +29,14 @@ const rejectStyle = {
   borderColor: "#ff1744",
 };
 
-const Dropzone = () => {
-  const onDrop = React.useCallback((acceptedFiles) => {
-    // Do something with the files
-  }, []);
+const Dropzone = ({ setFileToBeConvert }) => {
+  const onDrop = React.useCallback(
+    (acceptedFiles) => {
+      // Do something with the files
+      setFileToBeConvert(acceptedFiles[0]);
+    },
+    [setFileToBeConvert]
+  );
   const {
     getRootProps,
     getInputProps,
